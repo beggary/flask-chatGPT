@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login_BigHippo</title>
+    <script  type="text/javascript" src="../static/jquery-3.6.0.min.js"></script>
+  <link href="../static/login.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../static/login.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>
+        <img class="icon-lg" id="bb" src="../static/lo.gif" alt="logo">
+       </h2>
+    <form>
+        <label for="username"></label><input type="text" id="username" placeholder="用户名" required>
+        <label for="password"></label><input type="password" id="password" placeholder="密码" required>
+      <button  type="button" id="btn" onclick="login()">登录</button>
+      <p class="login-callout mt-3">
+            你有 API key ？
+              <a data-ga-click="Sign in, switch to sign up" href="/KeyPage">来这里</a>
+          </p>
+    </form>
+  </div>
+      <footer class="oai-footer">
+            <a>疑问：chatbeggary@foxmail.com</a>
+        </footer>
+</body>
+</html>
