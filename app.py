@@ -19,55 +19,13 @@ logging.basicConfig(filename='app.log', level=logging.DEBUG)
 
 # 创建一个FileHandler并设置编码为utf-8
 file_handler = logging.FileHandler('app.log', encoding='utf-8')
-api_key = [
-    "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",
-    "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",
-    "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",
-    "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",
-    "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", ]
+api_key = ["在这里输入你的KEY"]
 
 users = {
-    'admin': {
-        'username': 'admin',
-        'password': generate_password_hash('admin666')  # 生成密码的哈希值
-    },
-    'yuxi': {
-        'username': 'yuxi',
-        'password': generate_password_hash('yuxi666')
-    },
-    'wenjia': {
-        'username': 'wenjia',
-        'password': generate_password_hash('wenjia666')
-    },
-    '2': {
-        'username': '2',
-        'password': generate_password_hash('2')
-    },
-    # ===========出售账号=================================
-    'user010101': {
-        'username': 'user010101',
+    'user0120101': {
+        'username': 'user0120101',
         'password': generate_password_hash('EG7DY76T32672')
-    },
-    'user010102': {
-        'username': 'user010102',
-        'password': generate_password_hash('D2734R34F256G64')
-    },
-    'user010103': {
-        'username': 'user010103',
-        'password': generate_password_hash('4G46GR4324G456')
-    },
-    'user010104': {
-        'username': 'user010104',
-        'password': generate_password_hash('45G2465HB6UU76')
-    },
-    'user010105': {
-        'username': 'user010105',
-        'password': generate_password_hash('76N867J8J56H678J')
-    },
-    'user010106': {
-        'username': 'user010106',
-        'password': generate_password_hash('V456566H747J857H')
-    },
+    }
 }
 app.config['SECRET_KEY'] = os.urandom(24)
 user_messages = {}
@@ -170,11 +128,6 @@ def keyGPT():
         # 提取流式响应 回答内容
         full_reply_content = ''.join([m.get('content', '') for m in boot_messages])
         print(full_reply_content)
-        logging.debug("===========================")
-        logging.debug("time: %s", time.strftime("%Y-%m-%d_%H:%M:%S"))
-        logging.debug("userIn: %s", inputText)
-        logging.debug("chatgpt: %s", full_reply_content)
-        logging.debug("===========================")
         # 将chatGPT的回答内容 添加到数组中去
         key_messages.append({"role": "assistant", "content": full_reply_content})
         # 以流式响应推送给前端
@@ -223,12 +176,6 @@ def chatGPT():
         # 提取流式响应 回答内容
         full_reply_content = ''.join([m.get('content', '') for m in boot_messages])
         print(full_reply_content)
-        logging.debug("===========================")
-        qT = time.strftime("%Y-%m-%d_%H:%M:%S")
-        logging.debug("time: %s", qT)
-        logging.debug("userIn: %s", inputText)
-        logging.debug("chatgpt: %s", full_reply_content)
-        logging.debug("===========================")
         # 将chatGPT的回答内容 添加到数组中去
         user_messages[user_name].append({"role": "assistant", "content": full_reply_content})
 
